@@ -9,9 +9,10 @@
 </style>
 <script src="script.js" defer></script>
 <body>
-    <button>New Project</button>
-    <button>New Todo</button>
-    <div id="projects"></div>
+    <button onclick="createNewProject()">New Project</button>
+    <select id="projects">
+        <option>Default</option>
+    </select>
     <div>
         <form name="todo-input" id="todo-form">
             <input type="text" value="Title" name="title">
@@ -21,7 +22,7 @@
             Low <input type="radio" id="priority-low" name="priority" value="Low">
             Med <input type="radio" id="priority-med" name="priority" value="Med">
             High <input type="radio" id="priority-high" name="priority" value="High">
-            <input type="button" value="Submit" onclick="addTodoFromForm(); clearTodoListFromDOM(); writeProjectToDOM(projects[0]);">
+            <input type="button" value="Submit" onclick="addTodoFromForm(); reloadTodos();">
         </form>
     </div>
     <div id="todo-list"></div>
