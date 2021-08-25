@@ -63,7 +63,7 @@ function addTodoFromForm() {
     const priority = document.forms["todo-input"]["priority"].value;
     const todo = new Todo(title, description, date, priority, false, todoID, projID);
     todoID++;
-    projects[0].todos.push(todo);
+    projects[projID].todos.push(todo);
 }
 
 function clearTodoListFromDOM() {
@@ -109,7 +109,16 @@ function addProjectToDOM(projectTitle) {
     const selectProjects = document.querySelector('#projects');
     const projectOption = document.createElement('option');
     projectOption.innerHTML = projectTitle;
+    projectOption.value = projects.length - 1;
     selectProjects.appendChild(projectOption);
+}
+
+const sel = document.getElementById('projects');
+sel.addEventListener("change", selectProject);
+
+function selectProject() {
+    projID = parseInt(sel.value);
+    reloadTodos();
 }
 
 const p = new Project([], "Default project");
