@@ -71,10 +71,6 @@ function clearTodoListFromDOM() {
     todoList.innerHTML = '';
 }
 
-function clickNewTodo() {
-    console.log("new todo clicked");
-}
-
 function toggleCompleted(id){
     projects[projID].todos.find(todo => todo.id === id).isComplete 
         = !projects[projID].todos.find(todo => todo.id === id).isComplete ;
